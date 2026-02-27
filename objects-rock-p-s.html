@@ -6,7 +6,7 @@
     <title>Object with rock paper scissors</title>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
+    <p>Rock Paper Scissors</p>
 
     <button onclick="playGame('Rock')">Rock</button>
 
@@ -14,12 +14,17 @@
 
     <button onclick="playGame('Scissors')">Scissors</button>
 
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
     <button
       onclick="
         score.wins = 0;
         score.losses = 0;
         score.ties = 0;
         localStorage.removeItem('score');
+        updateScoreEmelement();
       "
     >
       Reset Score
@@ -32,15 +37,13 @@
         ties: 0,
       };
 
-      /*
-      if (!score) {
-        score = {
-          wins: 0,
-          losses: 0,
-          ties: 0,
-        };
-      }
-        */
+      const jsScore = document.querySelector(".js-score");
+
+      const jsResult = document.querySelector(".js-result");
+
+      const jsMoves = document.querySelector(".js-moves");
+
+      updateScoreEmelement();
 
       let computerMove = "";
       let result = "";
@@ -86,11 +89,19 @@
 
         localStorage.setItem("score", JSON.stringify(score));
 
-        alert(
-          `You picked ${playerMove}. Computer picked ${computerMove}. You ${result}
-wins: ${score.wins}, losses: ${score.losses}, Ties: ${score.ties}
-          `,
-        );
+        updateScoreEmelement();
+
+        winUpdate();
+
+        jsMoves.innerHTML = `You ${playerMove}, - ${computerMove} Computer`;
+      }
+
+      function winUpdate() {
+        jsResult.innerHTML = `You: ${result}`;
+      }
+
+      function updateScoreEmelement() {
+        jsScore.innerHTML = `wins: ${score.wins}, losses: ${score.losses}, Ties: ${score.ties}`;
       }
 
       function pickComputerMove() {

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter your name" class="inputBox" />
+
+    <button onclick="submitHandler()">Submit</button>
+
+    <p class="pTag"></p>
+
+    <script>
+      function submitHandler() {
+        const inputTxt = document.querySelector(".inputBox");
+
+        document.querySelector(".pTag").innerHTML =
+          `Your name is: ${inputTxt.value}`;
+      }
+    </script>
+  </body>
+</html>
