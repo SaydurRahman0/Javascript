@@ -4,17 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <p>Todo list practice 1</p>
+  <body class="p-20">
+    <p class="text-2xl font-bold py-4">Todo list</p>
 
-    <input type="text" placeholder="todo name" class="input-box" />
-    <button onclick="addTodo()">Add</button>
+    <div class="grid grid-cols-3 space-x-2">
+      <input
+        placeholder="Enter Todo name"
+        id="input-box"
+        class="border-2 border-gray-300 py-1 p-1"
+      />
 
-    <div class="display-todo"></div>
+      <input
+        type="date"
+        id="dueDate-input"
+        class="border-2 border-gray-300 py-1 p-1"
+      />
+      <button
+        onclick="addTodo()"
+        class="bg-green-600 border-2 border-green-600 px-6 text-white cursor-pointer"
+      >
+        Add
+      </button>
+    </div>
+
+    <div
+      id="display-todo"
+      class="grid grid-cols-3 py-5 space-y-3 items-center"
+    ></div>
 
     <script src="todo-list.js"></script>
-
-    <!-- timecode: 8:43:12 -->
   </body>
 </html>
