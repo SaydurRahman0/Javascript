@@ -30,6 +30,8 @@
       Reset Score
     </button>
 
+    <button onclick="autoPlay()">Auto play</button>
+
     <script>
       let score = JSON.parse(localStorage.getItem("score")) || {
         wins: 0,
@@ -45,13 +47,17 @@
 
       updateScoreEmelement();
 
-      let computerMove = "";
-      let result = "";
+      function autoPlay() {
+        setInterval(function () {
+          const playerMove = pickComputerMove();
+          playGame(playerMove);
+        }, 1000);
+      }
 
       function playGame(playerMove) {
-        pickComputerMove();
+        const computerMove = pickComputerMove();
 
-        result = "";
+        let result = "";
 
         if (playerMove === "Scissors") {
           if (computerMove === "Rock") {

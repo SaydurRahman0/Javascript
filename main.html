@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning purpose</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex h-screen items-center justify-center">
+      <div>
+        <p class="text-2xl p-10 text-center">Todo List</p>
+        <input
+          id="inputBox"
+          type="text"
+          placeholder="Enter your todo"
+          class="border-2 border-gray-400 py-1 p-1"
+        />
+        <input
+          id="dueDate"
+          type="date"
+          class="border-2 border-gray-400 py-1 p-1"
+        />
+        <button
+          onclick="submitHandler()"
+          class="border-2 border-[#237227] py-1 p-1 bg-[#237227] px-4 text-white"
+        >
+          Add
+        </button>
+        <div id="showTodo" class="grid grid-cols-3 py-10 gap-2"></div>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
